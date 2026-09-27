@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ARPAN HUB</title>
+<style>
+:root{--bg:#070b16;--card:#0d1425;--card2:#111b31;--text:#f5f7ff;--muted:#9aa6c2;--primary:#6c63ff;--secondary:#00d4ff;--border:#202b45;--danger:#ff5577}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+header{position:sticky;top:0;z-index:10;background:#070b16ee;border-bottom:1px solid var(--border)}
+.nav{max-width:1150px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}.logo{font-size:27px;font-weight:900;color:#7c72ff}
+nav{display:flex;gap:6px;flex-wrap:wrap}nav a,.theme{color:var(--text);text-decoration:none;padding:8px 10px;border:1px solid transparent;border-radius:9px;background:transparent;cursor:pointer}
+nav a:hover,.theme:hover{border-color:var(--border);background:var(--card)}
+.container{max-width:1150px;margin:auto;padding:0 20px}.hero{text-align:center;padding:65px 20px 45px}.hero h1{font-size:clamp(42px,8vw,78px);margin:12px 0;background:linear-gradient(90deg,#fff,#6c63ff,#00d4ff);-webkit-background-clip:text;color:transparent}.hero p{color:var(--muted);font-size:18px;line-height:1.6}.section{padding:38px 0}.title{margin-bottom:18px}.title h2{margin:0 0 6px;font-size:30px}.title p{margin:0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:15px}.card,.panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}.card h3{margin-top:0}.card p{color:var(--muted)}.tool{cursor:pointer}.tool:hover{border-color:#6674a5;transform:translateY(-2px)}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1;min-width:120px}
+input,textarea,select{width:100%;padding:13px;background:#080e1d;color:var(--text);border:1px solid var(--border);border-radius:10px;font-size:15px;outline:none}textarea{min-height:110px;resize:vertical}
+.btn{border:0;border-radius:10px;padding:12px 16px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;font-weight:800;cursor:pointer}.btn.secondary{background:var(--card2);border:1px solid var(--border)}.btn.danger{background:var(--danger)}
+.result{margin-top:12px;padding:15px;min-height:55px;background:#080e1d;border:1px solid var(--border);border-radius:10px;white-space:pre-wrap;word-break:break-word}
+.stat{font-size:27px;font-weight:900}.small{color:var(--muted);font-size:13px}.timer{text-align:center;font-size:44px;font-weight:900;margin:12px 0}.list{display:flex;flex-direction:column;gap:8px;margin-top:12px}.item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px;background:#080e1d;border:1px solid var(--border);border-radius:9px}.progress{height:11px;border-radius:20px;background:#080e1d;border:1px solid var(--border);overflow:hidden}.progress div{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));width:0}footer{text-align:center;color:var(--muted);padding:35px 20px;border-top:1px solid var(--border)}
+@media(max-width:700px){nav{display:none}.nav{padding:12px 15px}.hero{padding-top:45px}}
+</style>
+</head>
+<body>
+
+<header><div class="nav">
+<div class="logo">ARPAN HUB</div>
+<nav><a href="#home">Home</a><a href="#tools">Tools</a><a href="#study">Study</a><a href="#productivity">Productivity</a><a href="#creator">Creator</a><a href="#developer">Developer</a></nav>
+<button class="theme" onclick="toggleTheme()">☀️ Theme</button>
+</div></header>
+
+<main id="home">
+<section class="hero"><span>⚡ ALL-IN-ONE WEB PLATFORM</span><h1>ARPAN HUB</h1><p>Useful tools for calculations, study, productivity, creators and developers.</p><div class="row" style="max-width:600px;margin:auto"><button class="btn" onclick="go('tools')">🚀 Explore Tools</button><button class="btn secondary" onclick="go('calculator')">🧮 Calculator</button></div></section>
+
+<section class="section"><div class="container"><div class="title"><h2>📊 Dashboard</h2><p>Your quick overview</p></div><div class="grid">
+<div class="card"><div class="small">Today</div><div class="stat" id="today"></div></div>
+<div class="card"><div class="small">Time</div><div class="stat" id="clock"></div></div>
+<div class="card"><div class="small">Tasks</div><div class="stat" id="taskCount">0</div></div>
+<div class="card"><div class="small">Study Progress</div><div class="stat" id="dashProgress">0%</div></div>
+</div></div></section>
+
+<section class="section" id="tools"><div class="container"><div class="title"><h2>🛠️ Tools</h2><p>Everything in one place</p></div><div class="grid">
+<div class="card tool" onclick="go('calculator')"><h3>🧮 Calculator</h3><p>Everyday calculations</p></div>
+<div class="card tool" onclick="go('percentage')"><h3>📊 Percentage</h3><p>Marks percentage</p></div>
+<div class="card tool" onclick="go('discount')"><h3>🏷️ Discount</h3><p>Final price calculator</p></div>
+<div class="card tool" onclick="go('converter')"><h3>🔄 Converter</h3><p>Units and temperature</p></div>
+<div class="card tool" onclick="go('productivity')"><h3>✅ Productivity</h3><p>Tasks, notes, stopwatch</p></div>
+<div class="card tool" onclick="go('study')"><h3>📚 Study</h3><p>Focus timer and progress</p></div>
+<div class="card tool" onclick="go('creator')"><h3>🎨 Creator</h3><p>Password, color and quotes</p></div>
+<div class="card tool" onclick="go('developer')"><h3>💻 Developer</h3><p>JSON, Base64, HTML preview</p></div>
+</div></div></section>
+
+<section class="section" id="calculator"><div class="container"><div class="title"><h2>🧮 Smart Calculator</h2></div><div class="panel"><div class="row"><input id="calc" placeholder="Example: (25+15)*2"><button class="btn" onclick="calc()">Calculate</button></div><div class="result" id="calcOut">Result will appear here.</div></div></div></section>
+
+<section class="section" id="percentage"><div class="container"><div class="title"><h2>📊 Percentage Calculator</h2></div><div class="panel"><div class="row"><input id="got" type="number" placeholder="Obtained marks"><input id="total" type="number" placeholder="Total marks"><button class="btn" onclick="percent()">Calculate</button></div><div class="result" id="percentOut">Enter marks.</div></div></div></section>
+
+<section class="section" id="discount"><div class="container"><div class="title"><h2>🏷️ Discount Calculator</h2></div><div class="panel"><div class="row"><input id="price" type="number" placeholder="Original price"><input id="disc" type="number" placeholder="Discount %"><button class="btn" onclick="discount()">Calculate</button></div><div class="result" id="discOut">Enter price and discount.</div></div></div></section>
+
+<section class="section" id="converter"><div class="container"><div class="title"><h2>🔄 Unit Converter</h2></div><div class="panel"><div class="row"><input id="val" type="number" placeholder="Value"><select id="unit"><option value="km">km → m</option><option value="m">m → km</option><option value="kg">kg → g</option><option value="g">g → kg</option><option value="cf">°C → °F</option><option value="fc">°F → °C</option></select><button class="btn" onclick="convert()">Convert</button></div><div class="result" id="convOut">Choose a conversion.</div></div></div></section>
+
+<section class="section" id="productivity"><div class="container"><div class="title"><h2>✅ Productivity</h2></div><div class="grid">
+<div class="card"><h3>Task Manager</h3><div class="row"><input id="task" placeholder="New task"><button class="btn" onclick="addTask()">Add</button></div><div class="list" id="tasks"></div></div>
+<div class="card"><h3>📝 Notes</h3><textarea id="notes" placeholder="Write notes..."></textarea><button class="btn" style="margin-top:8px" onclick="saveNotes()">Save</button><div class="small" id="saved"></div></div>
+<div class="card"><h3>⏱️ Stopwatch</h3><div class="timer" id="sw">00:00:00</div><div class="row"><button class="btn" onclick="startSW()">Start</button><button class="btn secondary" onclick="pauseSW()">Pause</button><button class="btn danger" onclick="resetSW()">Reset</button></div></div>
+</div></div></section>
+
+<section class="section" id="study"><div class="container"><div class="title"><h2>📚 Study Center</h2></div><div class="grid">
+<div class="card"><h3>🍅 Focus Timer</h3><div class="timer" id="focus">25:00</div><div class="row"><button class="btn" onclick="startFocus()">Start</button><button class="btn secondary" onclick="pauseFocus()">Pause</button><button class="btn danger" onclick="resetFocus()">Reset</button></div></div>
+<div class="card"><h3>📈 Progress</h3><div class="timer" id="progText">0%</div><div class="progress"><div id="progBar"></div></div><div class="row" style="margin-top:10px"><button class="btn" onclick="addProgress()">+10%</button><button class="btn danger" onclick="resetProgress()">Reset</button></div></div>
+<div class="card"><h3>📅 Study Plan</h3><input id="plan" placeholder="What will you study?"><button class="btn" style="margin-top:8px" onclick="addPlan()">Add Plan</button><div class="list" id="plans"></div></div>
+</div></div></section>
+
+<section class="section" id="creator"><div class="container"><div class="title"><h2>🎨 Creator Studio</h2></div><div class="grid">
+<div class="card"><h3>🔐 Password Generator</h3><div class="row"><input id="plen" type="number" value="12"><button class="btn" onclick="password()">Generate</button></div><div class="result" id="passOut">Your password.</div><button class="btn secondary" style="margin-top:8px" onclick="copyPass()">Copy</button></div>
+<div class="card"><h3>🎨 Color Lab</h3><input id="color" type="color" value="#6c63ff" onchange="showColor()"><div class="result" id="colorOut">#6C63FF</div><button class="btn" onclick="copyColor()">Copy</button></div>
+<div class="card"><h3>💬 Quote Machine</h3><div class="result" id="quote">Believe in your progress.</div><button class="btn" onclick="quote()">New Quote</button></div>
+</div></div></section>
+
+<section class="section"><div class="container"><div class="title"><h2>🔤 Text Analyzer</h2></div><div class="panel"><textarea id="text" placeholder="Type or paste text..."></textarea><button class="btn" style="margin-top:8px" onclick="analyze()">Analyze</button><div class="grid" style="margin-top:12px"><div class="card"><div class="small">Characters</div><div class="stat" id="chars">0</div></div><div class="card"><div class="small">Words</div><div class="stat" id="words">0</div></div><div class="card"><div class="small">Lines</div><div class="stat" id="lines">0</div></div></div></div></div></section>
+
+<section class="section" id="developer"><div class="container"><div class="title"><h2>💻 Developer Tools</h2></div><div class="grid">
+<div class="card"><h3>🧩 JSON Formatter</h3><textarea id="json" placeholder='{"name":"Arpan"}'></textarea><button class="btn" style="margin-top:8px" onclick="formatJSON()">Format</button><div class="result" id="jsonOut">Result.</div></div>
+<div class="card"><h3>🔐 Base64</h3><textarea id="base" placeholder="Enter text"></textarea><div class="row" style="margin-top:8px"><button class="btn" onclick="encode()">Encode</button><button class="btn secondary" onclick="decode()">Decode</button></div><div class="result" id="baseOut">Result.</div></div>
+<div class="card"><h3>🌐 HTML Preview</h3><textarea id="html"><h1>Hello ARPAN HUB!</h1><p>Edit this HTML.</p></textarea><button class="btn" style="margin-top:8px" onclick="preview()">Preview</button><iframe id="frame" style="width:100%;height:210px;margin-top:10px;border-radius:9px"></iframe></div>
+</div></div></section>
+</main>
+<footer>Made with ❤️ for ARPAN HUB</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+function go(id){$(id).scrollIntoView({behavior:"smooth"});}
+function toggleTheme(){document.body.classList.toggle("light");if(document.body.classList.contains("light")){document.body.style.background="#f4f7fb";document.body.style.color="#111827"}else{document.body.style.background="var(--bg)";document.body.style.color="var(--text)"}}
+function clock(){let d=new Date();$("today").textContent=d.toLocaleDateString();$("clock").textContent=d.toLocaleTimeString()}setInterval(clock,1000);clock();
+
+function calc(){let v=$("calc").value.trim();try{if(!/^[0-9+\-*/().% ]+$/.test(v))throw 0;let r=Function('"use strict";return('+v+')')();if(!Number.isFinite(r))throw 0;$("calcOut").textContent="Result: "+r}catch(e){$("calcOut").textContent="Invalid calculation."}}
+function percent(){let a=Number($("got").value),b=Number($("total").value);$("percentOut").textContent=Number.isFinite(a)&&Number.isFinite(b)&&b>0?"Percentage: "+(a/b*100).toFixed(2)+"%":"Please enter valid marks."}
+function discount(){let p=Number($("price").value),d=Number($("disc").value);if(!Number.isFinite(p)||!Number.isFinite(d)||p<0||d<0||d>100){$("discOut").textContent="Enter valid values.";return}let save=p*d/100;$("discOut").textContent="Discount: "+save.toFixed(2)+" | Final Price: "+(p-save).toFixed(2)}
+function convert(){let v=Number($("val").value),t=$("unit").value;if(!Number.isFinite(v)){$("convOut").textContent="Enter a valid value.";return}let r,l;if(t==="km"){r=v*1000;l=" m"}if(t==="m"){r=v/1000;l=" km"}if(t==="kg"){r=v*1000;l=" g"}if(t==="g"){r=v/1000;l=" kg"}if(t==="cf"){r=v*9/5+32;l=" °F"}if(t==="fc"){r=(v-32)*5/9;l=" °C"}$("convOut").textContent=r.toFixed(4).replace(/\.0+$|(?<=\.[0-9]*?)0+$/,"")+l}
+
+let tasks=JSON.parse(localStorage.getItem("tasks")||"[]");function renderTasks(){$("tasks").innerHTML=tasks.map((x,i)=>'<div class="item"><span>'+safe(x)+'</span><button class="btn danger" onclick="delTask('+i+')">Delete</button></div>').join("");$("taskCount").textContent=tasks.length}function safe(x){return x.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}function addTask(){let v=$("task").value.trim();if(v){tasks.push(v);$("task").value="";localStorage.setItem("tasks",JSON.stringify(tasks));renderTasks()}}function delTask(i){tasks.splice(i,1);localStorage.setItem("tasks",JSON.stringify(tasks));renderTasks()}renderTasks();
+$("notes").value=localStorage.getItem("notes")||"";function saveNotes(){localStorage.setItem("notes",$("notes").value);$("saved").textContent="Saved!"}
+
+let sw=0,swInt=null;function drawSW(){let h=Math.floor(sw/3600),m=Math.floor(sw%3600/60),s=sw%60;$("sw").textContent=[h,m,s].map(x=>String(x).padStart(2,"0")).join(":")}function startSW(){if(!swInt)swInt=setInterval(()=>{sw++;drawSW()},1000)}function pauseSW(){clearInterval(swInt);swInt=null}function resetSW(){pauseSW();sw=0;drawSW()}drawSW();
+
+let fs=1500,fi=null;function drawF(){let m=Math.floor(fs/60),s=fs%60;$("focus").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")}function startFocus(){if(!fi)fi=setInterval(()=>{if(fs>0){fs--;drawF()}else pauseFocus()},1000)}function pauseFocus(){clearInterval(fi);fi=null}function resetFocus(){pauseFocus();fs=1500;drawF()}drawF();
+
+let prog=Number(localStorage.getItem("prog")||0);function drawProg(){prog=Math.min(100,Math.max(0,prog));$("progText").textContent=prog+"%";$("progBar").style.width=prog+"%";$("dashProgress").textContent=prog+"%";localStorage.setItem("prog",prog)}function addProgress(){prog+=10;drawProg()}function resetProgress(){prog=0;drawProg()}drawProg();
+let plans=JSON.parse(localStorage.getItem("plans")||"[]");function renderPlans(){$("plans").innerHTML=plans.map((x,i)=>'<div class="item"><span>'+safe(x)+'</span><button class="btn danger" onclick="delPlan('+i+')">Delete</button></div>').join("")}function addPlan(){let v=$("plan").value.trim();if(v){plans.push(v);$("plan").value="";localStorage.setItem("plans",JSON.stringify(plans));renderPlans()}}function delPlan(i){plans.splice(i,1);localStorage.setItem("plans",JSON.stringify(plans));renderPlans()}renderPlans();
+
+let lastPass="";function password(){let n=Math.max(4,Math.min(40,Number($("plen").value)||12)),c="ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%";lastPass="";for(let i=0;i<n;i++)lastPass+=c[Math.floor(Math.random()*c.length)];$("passOut").textContent=lastPass}async function copyPass(){if(!lastPass)password();try{await navigator.clipboard.writeText(lastPass);alert("Copied!")}catch(e){}}
+function showColor(){$("colorOut").textContent=$("color").value.toUpperCase()}async function copyColor(){try{await navigator.clipboard.writeText($("color").value);alert("Copied!")}catch(e){}}showColor();
+const quotes=["Believe in your progress.","Small steps become big results.","Focus on today.","Keep learning and building.","Consistency matters."];function quote(){$("quote").textContent=quotes[Math.floor(Math.random()*quotes.length)]}
+function analyze(){let t=$("text").value;$("chars").textContent=t.length;$("words").textContent=t.trim()?t.trim().split(/\s+/).length:0;$("lines").textContent=t?t.split(/\r?\n/).length:0}
+function formatJSON(){try{$("jsonOut").textContent=JSON.stringify(JSON.parse($("json").value),null,2)}catch(e){$("jsonOut").textContent="Invalid JSON."}}
+function encode(){try{$("baseOut").textContent=btoa(unescape(encodeURIComponent($("base").value)))}catch(e){$("baseOut").textContent="Encoding failed."}}
+function decode(){try{$("baseOut").textContent=decodeURIComponent(escape(atob($("base").value.trim())))}catch(e){$("baseOut").textContent="Invalid Base64."}}
+function preview(){$("frame").srcdoc=$("html").value}
+</script>
+</body>
+</html>
